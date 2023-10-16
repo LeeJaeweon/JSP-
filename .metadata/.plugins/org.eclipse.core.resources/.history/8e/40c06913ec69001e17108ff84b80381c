@@ -1,0 +1,25 @@
+<%@ page import="javax.xml.parsers.DocumentBuilderFactory"%>
+<%@ page import="org.w3c.dom.Document"%>
+<%@ page import="org.w3c.dom.NodeList"%>
+<%@ page import="java.io.ByteArrayInputStream"%>
+
+<%
+    String xmlData = request.getParameter("xmlData");
+    if (xmlData != null && !xmlData.isEmpty()) {
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            
+            // This line is critical for simulating the XXE vulnerability
+            factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", false);
+            
+            Document doc = factory.newDocumentBuilder().parse(new ByteArrayInputStream(xmlData.getBytes()));
+            NodeList nodes = doc.getElementsByTagName("content");
+            if (nodes.getLength() > 0) {
+                out.print(nodes.item(0).getTextContent());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            out.print("Error parsing XML: " + e.getMessage());
+        }
+    }
+%>

@@ -1,0 +1,20 @@
+<html>
+<body>
+<?php
+$xml = $_POST['xml'];
+if ($xml){
+    echo "input length : ".strlen($_POST['xml']);
+    echo '<br>';
+    $doc = simplexml_load_string($xml);
+}
+?>
+<h1>XML Parser</h1>
+<form action="xml.php" method="post">
+    <textarea name="xml" rows="12" cols="100"></textarea>
+    <br>
+    <input type="submit" size="55">
+    <br>
+    <?php echo $doc->testing;?>
+</form>
+</body>
+</html>

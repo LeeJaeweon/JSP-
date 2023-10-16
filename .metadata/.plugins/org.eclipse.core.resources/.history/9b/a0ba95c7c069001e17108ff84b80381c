@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.io.BufferedReader, java.io.FileReader, java.io.PrintWriter" %>
+
+<%
+    // 클라이언트에서 전송된 문의 내용을 받아옵니다.
+    String message = request.getParameter("message");
+
+    // FAQ 디렉토리 내에 파일로 저장합니다.
+    String filePath = getServletContext().getRealPath("/") + "FAQ/message.txt";
+    try (PrintWriter out = new PrintWriter(filePath)) {
+        out.write(message);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+%>

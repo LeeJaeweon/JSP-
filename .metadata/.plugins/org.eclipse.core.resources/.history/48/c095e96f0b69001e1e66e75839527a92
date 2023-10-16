@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<form name="test" method="post" action="xml.jsp">
+		<input type="text" name="xml">
+		<input type="submit">
+	</form>
+</body>
+</html>

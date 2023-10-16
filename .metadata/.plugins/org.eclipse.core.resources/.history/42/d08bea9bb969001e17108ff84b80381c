@@ -1,0 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<html>
+<body>
+    <form action="process.jsp" method="post" enctype="multipart/form-data">
+        XML 파일: <input type="file" name="xmlFile"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

@@ -1,0 +1,2 @@
+127.0.0.1 - - [10/Oct/2023:10:13:12 +0900] "GET /Project/view.jsp?bbsID=209 HTTP/1.1" 200 4179
+127.0.0.1 - - [10/Oct/2023:10:13:12 +0900] "GET /Project/bbsUpload/209_1.gif HTTP/1.1" 304 -

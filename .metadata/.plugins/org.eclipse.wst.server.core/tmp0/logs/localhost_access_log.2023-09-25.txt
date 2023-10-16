@@ -1,0 +1,2 @@
+127.0.0.1 - - [25/Sep/2023:10:47:17 +0900] "GET /Project/view.jsp?bbsID=187 HTTP/1.1" 200 4269
+127.0.0.1 - - [25/Sep/2023:10:47:17 +0900] "GET /Project/bbsUpload/187 HTTP/1.1" 404 836

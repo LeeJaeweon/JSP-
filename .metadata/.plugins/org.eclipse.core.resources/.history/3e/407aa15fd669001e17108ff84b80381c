@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <metadata>
+        <fileType>PHP</fileType>
+        <purpose>XML Parser</purpose>
+    </metadata>
+    <content>
+        <phpCode>
+            <variable name="xml">
+                <method name="POST">xml</method>
+            </variable>
+            <condition expression="$xml">
+                <echo>input length : <method name="strlen">$_POST['xml']</method></echo>
+                <echo><br/></echo>
+                <variable name="doc">
+                    <method name="simplexml_load_string">$xml</method>
+                </variable>
+            </condition>
+        </phpCode>
+        <html>
+            <h1>XML Parser</h1>
+            <form action="xml.php" method="post">
+                <textarea name="xml" rows="12" cols="100"></textarea>
+                <input type="submit" size="55" />
+                <phpCode>
+                    <echo>$doc->testing</echo>
+                </phpCode>
+            </form>
+        </html>
+    </content>
+</document>

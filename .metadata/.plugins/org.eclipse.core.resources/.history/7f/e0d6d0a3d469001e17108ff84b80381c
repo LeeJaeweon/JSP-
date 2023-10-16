@@ -1,0 +1,24 @@
+<html>
+<body>
+<?php
+$xml = $_POST['xml'];
+if ($xml){
+    echo "입력 길이 : ".strlen($_POST['xml']);
+    echo '<br>';
+    $doc = simplexml_load_string($xml);
+}
+?>
+<h1>XML 파서</h1>
+<form action="xml.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="xmlFile" id="xmlFile" accept=".xml">
+    <br>
+    <input type="submit" value="업로드 및 파싱">
+    <br>
+    <?php 
+    if (isset($doc->testing)) {
+        echo "파싱 결과: " . $doc->testing;
+    }
+    ?>
+</form>
+</body>
+</html>

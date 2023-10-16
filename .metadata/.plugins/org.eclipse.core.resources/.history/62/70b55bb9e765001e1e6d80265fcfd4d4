@@ -1,0 +1,62 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>게시판 웹 사이트</title>
+    <script>
+        function openPopup(url, width, height) {
+            var popup = window.open(url, "_blank", "width=" + width + ",height=" + height);
+            popup.focus();
+        }
+
+        function submitFormToXML() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+
+            var xmlString = '<inquiry><name>' + name + '</name><email>' + email + '</email><message>' + message + '</message></inquiry>';
+            console.log("Generated XML: ", xmlString);
+        }
+    </script>
+</head>
+<body>
+    <%
+        String userID = (String) session.getAttribute("userID");
+    %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- ... Navbar Content ... -->
+    </nav>
+
+    <div class="container mt-5">
+        <div class="jumbotron border rounded p-3">
+            <div class="container text-center">
+                <h1 style="font-size: 48px;">Camping with us</h1>
+                <p>캠핑게시판에 오신 것을 환영합니다.</p>
+                <div class="mt-4">
+                    <a href="DownloadServlet.jsp?file=myfile.txt" class="btn btn-primary mr-2">☎ 연락처</a>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contactAdminModal">관리자에게 문의하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="contactAdminModal" tabindex="-1" role="dialog" aria-labelledby="contactAdminModalLabel" aria-hidden="true">
+        <!-- ... Modal Content ... -->
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- ... Carousel Content ... -->
+            </div>
+        </div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+</body>
+</html>

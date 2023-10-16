@@ -1,0 +1,24 @@
+<%@page import="javax.xml.parsers.DocumentBuilderFactory"%>
+<%@page import="javax.xml.parsers.DocumentBuilder"%>
+<%@page import="org.w3c.dom.Document"%>
+<%@page import="org.xml.sax.InputSource"%>
+<%@page import="java.io.StringReader"%>
+
+<%
+String xmlData = request.getParameter("xmlData");
+if (xmlData != null && !xmlData.isEmpty()) {
+    try {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", false); // XXE를 허용하기 위해 설정 변경
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document doc = builder.parse(new InputSource(new StringReader(xmlData)));
+        
+        String commentContent = doc.getElementsByTagName("comment").item(0).getTextContent();
+        
+        // 여기에서 댓글 내용을 데이터베이스에 저장하십시오.
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+%>

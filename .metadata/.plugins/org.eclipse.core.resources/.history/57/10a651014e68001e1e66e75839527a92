@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<employees>
+    <employee>
+        <name>John Doe</name>
+        <position>Manager</position>
+    </employee>
+    <employee>
+        <name>Jane Smith</name>
+        <position>Developer</position>
+    </employee>
+</employees>

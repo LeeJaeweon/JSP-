@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.io.BufferedReader, java.io.FileReader" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>문의 내용 확인</title>
+</head>
+<body>
+    <h2>문의 내용 확인</h2>
+    <%
+        String filePath = getServletContext().getRealPath("/") + "FAQ/message.xml";
+        String message = "";
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filePath));
+            String line;
+            while ((line = br.readLine()) != null) {
+                message += line + "<br>";
+            }
+            br.close(); // BufferedReader를 닫습니다.
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    %>
+    <div>
+        <p><strong>문의 내용:</strong></p>
+        <p><%= message %></p>
+    </div>
+</body>
+</html>

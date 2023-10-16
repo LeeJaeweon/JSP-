@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>문의 내용 확인</title>
+</head>
+<body>
+    <h2>문의 내용 확인</h2>
+    <%
+        // 저장된 문의 내용을 파일에서 읽어옵니다.
+        String filePath = getServletContext().getRealPath("/") + "FAQ/message.txt";
+        String message = "";
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                message += line + "<br>";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    %>
+    <div>
+        <p><strong>문의 내용:</strong></p>
+        <p><%= message %></p>
+    </div>
+</body>
+</html>
